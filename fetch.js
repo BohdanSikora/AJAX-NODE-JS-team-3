@@ -7,8 +7,8 @@ async function getInfo(){
     console.log('start of request')
     let request = await fetch('http://127.0.0.1:3300/users');
 
-    console.log(request)
-    let usersInfo = await request.json()
+    // console.log(request)
+    let usersInfo = await respo.json()
 
     let info = document.querySelector('.info-containers')
     let key
@@ -19,7 +19,9 @@ async function getInfo(){
             <p>Lastname:${` ${key.last_name}`}</p>
             <p>Email:${` ${key.email}`}</p>
             <img src='${key.photo}'>
+
         `;
+
     }
     console.log('end of request')
 }

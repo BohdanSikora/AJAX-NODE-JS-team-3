@@ -5,7 +5,7 @@ button.style.display = 'block';
 
 async function getInfo(){
     console.log('start of request')
-    let request = await fetch('./users.json')
+    let request = await fetch('http://127.0.0.1:3300/users');
 
     console.log(request)
     let usersInfo = await request.json()
@@ -19,8 +19,7 @@ async function getInfo(){
             <p>Lastname:${` ${key.last_name}`}</p>
             <p>Email:${` ${key.email}`}</p>
             <img src='${key.photo}'>
-        `
-        console.log(usersInfo[key])
+        `;
     }
     console.log('end of request')
 }

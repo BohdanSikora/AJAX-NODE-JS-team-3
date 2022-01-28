@@ -1,12 +1,13 @@
-import { createServer } from "http";
-import json from './users.json';
-const port = 5500;
+let json = require('./users.json');
+const http = require('http');
+const port = 3300;
 
 
-
-createServer((req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader('Access-Control-Allow-Origin', '*');
+http.createServer((req, res) => {
+    const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET',
+    };
 
     if (req.url === "/users"){
         res.writeHead(200, headers);
@@ -17,4 +18,4 @@ createServer((req, res) => {
     .listen(port);
 
 
-console.log("Node.js web server at port 5500 is running..");
+console.log("Node.js web server at port 3000 is running..");

@@ -5,7 +5,7 @@ button.style.display = 'block';
 
 async function getInfo(){
     console.log('start of request')
-    let request = await fetch('http://127.0.0.1:3300/users');
+    let respo = await fetch('http://127.0.0.1:5502/users');
 
     // console.log(request)
     let usersInfo = await respo.json()

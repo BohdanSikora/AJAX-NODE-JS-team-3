@@ -4,11 +4,13 @@ let button = document.querySelector('#my-btn');
 button.style.display = 'block';
 
 async function getInfo(){
-    console.log('start of request')
+
+    // console.log('start of request')
+    let respo = await fetch('http://127.0.0.1:4000/users')
     let request = await fetch('./users.json')
 
-    console.log(request)
-    let usersInfo = await request.json()
+    // console.log(request)
+    let usersInfo = await respo.json()
 
     let info = document.querySelector('.info-containers')
     let key
@@ -19,7 +21,7 @@ async function getInfo(){
             <p>Lastname:${` ${key.last_name}`}</p>
             <p>Email:${` ${key.email}`}</p>
             <img src='${key.photo}'>
-        `
+        `    
         console.log(usersInfo[key])
     }
     console.log('end of request')
